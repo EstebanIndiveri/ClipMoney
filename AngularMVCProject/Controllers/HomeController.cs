@@ -8,9 +8,11 @@ namespace AngularMVCProject.Controllers
 {
     public class HomeController : Controller
     {
-        // GET: Home
+        //GET: Home
         public ActionResult Index()
+        //public string Index()
         {
+            //return "Algo algo algo";
             return View();
         }
     }

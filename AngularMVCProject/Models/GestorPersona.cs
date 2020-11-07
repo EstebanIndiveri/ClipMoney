@@ -32,14 +32,14 @@ namespace AngularMVCProject.Models
         public List<Persona> ObtenerPersonas()
         {
             List<Persona> lista = new List<Persona>();
-            string StrConn = ConfigurationManager.ConnectionStrings["BDLocal"].ToString();
+            string StrConn = ConfigurationManager.ConnectionStrings["db_clip"].ToString();
 
             using (SqlConnection conn = new SqlConnection(StrConn))
             {
                 conn.Open();
 
                 SqlCommand comm = conn.CreateCommand();
-                comm.CommandText = "obtener_personas";
+                comm.CommandText = "obtener_clientes";
                 comm.CommandType = System.Data.CommandType.StoredProcedure;
 
                 SqlDataReader dr = comm.ExecuteReader();
@@ -49,7 +49,7 @@ namespace AngularMVCProject.Models
                     string nombre = dr.GetString(1).Trim();
                     string apellido = dr.GetString(2).Trim();
 
-                    Persona p = new Persona(id, nombre, apellido);
+                    Persona p = new Persona(id,nombre, apellido);
                     lista.Add(p);
                 }
 
