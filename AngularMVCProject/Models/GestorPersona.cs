@@ -37,7 +37,7 @@ namespace AngularMVCProject.Models
             using (SqlConnection conn = new SqlConnection(StrConn))
             {
                 conn.Open();
-
+                
                 SqlCommand comm = conn.CreateCommand();
                 comm.CommandText = "obtener_clientes";
                 comm.CommandType = System.Data.CommandType.StoredProcedure;

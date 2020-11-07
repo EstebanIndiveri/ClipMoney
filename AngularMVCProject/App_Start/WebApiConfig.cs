@@ -11,10 +11,12 @@ namespace AngularMVCProject
         public static void Register(HttpConfiguration config)
         {
             // Configuración y servicios de API web
+            config.EnableCors();
+
+            config.Formatters.Remove(config.Formatters.XmlFormatter);
 
             // Rutas de API web
             config.MapHttpAttributeRoutes();
-
             config.MessageHandlers.Add(new TokenValidationHandler());
 
             config.Routes.MapHttpRoute(

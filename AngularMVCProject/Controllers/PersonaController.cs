@@ -4,17 +4,18 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Routing;
 using AngularMVCProject.Models;
 
 namespace AngularMVCProject.Controllers
 {
-
+    [EnableCors(origins: "http://localhost:4200", headers:"*",methods:"*")]
     //[Authorize]
     [RoutePrefix("api/persona")]
     public class PersonaController : ApiController
     {
-
+       
         // GET: api/Persona
         public IEnumerable<Persona> Get()
         {
